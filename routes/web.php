@@ -6,14 +6,20 @@ use PhpParser\Node\Name;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/hola', function () {
-    return view('test');
-});
-
-
-Route::get('/crud', function () {
+Route::get('/contac', function () {
+    $name='Israel';
     $age= 22;
-    $data = ['name' =>'Israel','age' =>$age];
-    return view('crud/index',$data);
-})->name('crud');
+
+    $data=['name'=>$name,'age'=>$age];
+    return view('contact',$data);
+})->name('p1');
+
+
+Route::get('/contac1', function () {
+    $name2='Elvio';
+    $age2= 21;
+
+    $data2=['name2'=>$name2,'age2'=>$age2];
+    return view('contact1',$data2);
+})->name('p2');
+
