@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class PrimerControlador extends Controller
 {
     public function index(){
-        return view('contact', ['name'=>'Israel']);
+        $posts=['post1','post2'];
+        return view('contact', compact('posts'));
     }
     
     public function otro($post){
