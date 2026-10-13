@@ -8,8 +8,7 @@
 <body>
     <h1>Contac2 </h1>
     <h2>Nombre: {{$name2}}</h2>
-    <h2>Edad: {{$age2}}</h2>
-    <a href="{{ route('p1') }}">Ir a contacto 1</a>
+    
 
 </body>
 </html>

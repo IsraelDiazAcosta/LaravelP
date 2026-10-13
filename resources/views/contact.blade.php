@@ -1,3 +1,7 @@
+@extends('master')
+
+
+@section('contect')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +11,21 @@
 </head>
 <body>
     <h1>Contac1 </h1>
-    <h2>Nombre: {{$name}}</h2>
-    <h2>Edad: {{$age}}</h2>
-    <a href="{{ route('p2') }}">Ir a contacto 2</a>
+    <h2>Nombre: {{'Israel'}}</h2>
+    
+    @if($name != 'israel')
+    <p>-------------------------------------------</p>
+    <h1>Tu nombre no es israel</h1>
+        @else
+        <p>-------------------------------------------</p>
+        <h1>Tu nombre es {{ $name }}</h1>
+    @endif
+    <ul>
+    @foreach ([1,2,3,4,5] as $item)
+    <li>{{$item  }}</li>
+    @endforeach
+    </ul>
 </body>
 </html>
+@endsection
+

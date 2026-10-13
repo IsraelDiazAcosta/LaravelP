@@ -1,25 +1,13 @@
 <?php
 
+use App\Http\Controllers\PrimerControlador;
+use App\Http\Controllers\SegundoControlador;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Name;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contac', function () {
-    $name='Israel';
-    $age= 22;
-
-    $data=['name'=>$name,'age'=>$age];
-    return view('contact',$data);
-})->name('p1');
-
-
-Route::get('/contac1', function () {
-    $name2='Elvio';
-    $age2= 21;
-
-    $data2=['name2'=>$name2,'age2'=>$age2];
-    return view('contact1',$data2);
-})->name('p2');
-
+Route::get('test',[PrimerControlador::class,'index']);
+Route::get('otro/{post}',[PrimerControlador::class,'otro']);
+Route::get('test2',[SegundoControlador::class,'index']);
