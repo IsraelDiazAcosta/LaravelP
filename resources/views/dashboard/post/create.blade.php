@@ -2,6 +2,18 @@
 
 
 @section('contect')
+
+    @if($errors->any())
+        @foreach ($errors as $e)
+        <div>
+            {{ $e }}
+        </div>
+            
+        @endforeach
+    
+    @endif
+
+
     <form action=" {{ route('post.store') }}" method="POST")>
 
         @csrf

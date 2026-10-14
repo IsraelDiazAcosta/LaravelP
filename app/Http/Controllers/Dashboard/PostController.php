@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -41,24 +42,23 @@ class PostController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-
-        $request->validate([
-            'title'=> 'required|min:5|min:500',
-            'slug'=> 'required|min:5|min:500',
-            'content'=> 'required|min:5',
-            'category_id'=> 'required|integer',
-            'description'=> 'required|min:5',
-            'posted'=> 'required',
-            
-            ]);
-            echo'not';
-
-
-
-        Post::create($request->all());
+        Post::create($request->validated());
+    
         return to_route('post.index');
+        
+       //$request->validate([
+       //    'title'=> 'required|min:5|max:500',
+       //    'slug'=> 'required|min:5|max:500',
+       //    'content'=> 'required|min:5',
+       //    'category_id'=> 'required|integer',
+       //    'description'=> 'required|min:5',
+       //    'posted'=> 'required',
+       //    
+       //    ]);
+
+
        // Post::create([
         //'title' => $request->all()['title'],
         //'slug' => $request->all()['slug'],
