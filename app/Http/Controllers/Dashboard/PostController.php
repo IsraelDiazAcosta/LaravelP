@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,20 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        Post::create(
+            [
+                'title' => 'test title',
+                'slug' => 'test slug',
+                'content' => 'test content',
+                'category_id'=>1,
+                'description' => 'test description',
+                'posted' => 'not',
+                'image' => 'test image',
+
+            ]
+        );
+
+        return 'index';
     }
 
     /**
@@ -21,15 +35,39 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('id', 'title');
+
+        return view('dashboard.post.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+   
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'title'=> 'required|min:5|min:500',
+            'slug'=> 'required|min:5|min:500',
+            'content'=> 'required|min:5',
+            'category_id'=> 'required|integer',
+            'description'=> 'required|min:5',
+            'posted'=> 'required',
+            
+            ]);
+            echo'not';
+
+
+
+        Post::create($request->all());
+        return to_route('post.index');
+       // Post::create([
+        //'title' => $request->all()['title'],
+        //'slug' => $request->all()['slug'],
+        //'content' => $request->all()['content'],
+        //'category_id' => $request->all()['category_id'],
+        //'description' => $request->all()['description'],
+        //'posted' => $request->all()['posted'],
+        //'image' => $request->all()['image'],
+        //]);
     }
 
     /**
