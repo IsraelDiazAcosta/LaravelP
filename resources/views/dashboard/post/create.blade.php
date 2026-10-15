@@ -3,18 +3,10 @@
 
 @section('contect')
 
-    @if($errors->any())
-        @foreach ($errors as $e)
-        <div>
-            {{ $e }}
-        </div>
-            
-        @endforeach
-    
-    @endif
+    @include('dashboard.fragment._errors-form')
 
 
-    <form action=" {{ route('post.store') }}" method="POST")>
+    <form action=" {{ route('post.store') }}" method="POST">
 
         @csrf
         <label for="">Title</label>
