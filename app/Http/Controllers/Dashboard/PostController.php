@@ -63,7 +63,7 @@ $post=new Post();
      */
     public function show(Post $post)
     {
-        //
+        return view('dashboard.post._show', ['post'=> $post]);
     }
 
     /**
@@ -81,16 +81,23 @@ $post=new Post();
      */
     public function update(PutRequest $request, Post $post)
     {
-        $post->update($request->validated());
 
+        $data = $request->validated();
+
+        //image
+        if(isset($data['image'])) {
+        $data['image']=$filname=time().'.'.$data['image']->extension();
+        $request->image->move(public_path('uploads/posts'),$filname);
+        }
+        //image
+        $post->update($data);
+      
         return to_route('post.index');
+    
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Post $post)
     {
-        //
+    $post->delete();
+    return to_route('post.index');
     }
 }

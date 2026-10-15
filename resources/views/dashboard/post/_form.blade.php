@@ -1,9 +1,9 @@
 @csrf
         <label for="">Title</label>
-        <input type="text" name="title" value="{{ $post->title }}">
+        <input type="text" name="title" value="{{ old('title',$post->title ) }}">
 
         <label for="">Slug</label>
-        <input type="text" name="slug" value="{{ $post->slug }}">
+        <input type="text" name="slug" value="{{ old ('slug',$post->slug )}}">
 
         <textarea name="content">{{ $post->content }}</textarea>
 
@@ -26,6 +26,12 @@
             <option {{ $post->posted=='yes'? 'selected':''}}value="yes">yes</option>
 
         </select>
+
+        @if (isset($task) && $task=='edit')
+        
+        <label for="">Image</label>
+        <input type="file" name="image">
+        @endif
 
 
 
