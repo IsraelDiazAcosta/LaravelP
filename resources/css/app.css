@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+h1{
+    @apply text-4xl
+}
+
 /*****Tabla basica*/
 .table{
     @apply table-auto w-full;
@@ -34,4 +39,13 @@
 }
 .btn-warning{
     @apply bg-yellow-600 hover:bg-yellow-800 border-yellow-600
+}
+
+
+.card {
+    @apply p-6 rounded shadow-sm
+}
+
+.card-white {
+    @apply bg-white
 }
