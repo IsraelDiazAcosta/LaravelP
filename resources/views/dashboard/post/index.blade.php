@@ -5,27 +5,27 @@
 
 
 
- <a href="{{ route('post.create') }}" target="blank">Create</a>
+ <a class=" my-3 btn btn-success"  href="{{ route('post.create') }}" target="blank">Create</a>
 
 
-   <table>
+   <table class="table">
     <thead>
         <tr>
-            <td>
+            <th scope="col">
                 id
-            </td>
-            <td>
+            </th>
+            <th scope="col">
                 Title
-            </td>
-            <td>
+            </th>
+            <th scope="col">
                 Posted
-            </td>
-            <td>
+            </th>
+            <th scope="col">
                 Category
-            </td>
-            <td>
+            </th>
+            <th scope="col">
                 Options
-            </td>
+            </th>
         </tr>
     
         
@@ -48,16 +48,12 @@
                         {{ $p->category ->title}}
                     </td>
                     <td>
-                        {{ $p->category ->title}}
-                    </td>
-                    <td>
-                        <a href="{{ route('post.show',$p) }}">Show</a>
-                        <a href="{{ route('post.edit',$p) }}">Edit</a>
-                        <a href="{{ route('post.show',$p) }}">Show</a>
+                        <a class=" my-3 btn btn-primary" href="{{ route('post.show',$p) }}">Show</a>
+                        <a class=" my-3 btn btn-primary" href="{{ route('post.edit',$p) }}">Edit</a>
                         <form action="{{ route('post.destroy',$p) }}">
                             @method('DELETE')
                             @csrf
-                            <button type="submit">Delete</button>    
+                            <button class=" my-3 btn btn-danger" type="submit">Delete</button>    
                         </form>
 
 
