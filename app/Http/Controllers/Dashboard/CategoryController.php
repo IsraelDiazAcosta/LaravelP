@@ -17,8 +17,13 @@ class CategoryController extends Controller
 
         $categories = Category::paginate(2);
         
-        return view('dashboard/category/index',compact('categories'));
+        return view('dashboard.category.index',compact('categories'));
 
+
+    }
+
+    public function new($id){
+        
     }
 
     public function create()
