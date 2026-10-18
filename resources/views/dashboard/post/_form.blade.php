@@ -7,14 +7,14 @@
 
         <textarea name="content">{{ $post->content }}</textarea>
 
-        <label for="" class="form-control">Category</label>
-        <select name="category_id">
-
+        <label for="category_id" class="form-control">Category</label>
+        <select name="category_id" id="category_id" class="form-select" required>
+            <option value="">Select a category</option>
             @foreach ($categories as $title=>$id)
-                <option {{ $post->category->id==$id? 'selected':''}}value="{{ $id }}">{{ $title }}</option>
-                
+                <option value="{{ $id }}" @selected((string) old('category_id', $post->category_id) === (string) $id)>
+                    {{ $title }}
+                </option>
             @endforeach
-
         </select>
 
         <label for="" class="form-control">Description</label>

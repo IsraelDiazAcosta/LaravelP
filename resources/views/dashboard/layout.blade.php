@@ -35,7 +35,6 @@
     @endif
             <div class="container" mx-auto px-4 >
                 <div class="card card-white">
-
                     @yield('content')
 
                 </div>
