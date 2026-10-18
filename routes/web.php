@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileController, App\Http\Controllers\web\BlogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,5 +25,12 @@ Route::prefix('dashboard')
             'category' => App\Http\Controllers\Dashboard\CategoryController::class,
         ]);
     });
+Route::prefix('blog')
+    ->controller(BlogController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('blog.index');
+    });
 
+
+    
 require __DIR__.'/auth.php';
