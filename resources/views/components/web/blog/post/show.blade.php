@@ -1,5 +1,5 @@
 
-<x-alert class="mb-4" type="info" :message="$post->title"> </x-alert>
+<x-alert class="mb-4" type="info" :message="$post->title" data-id="1" data-priority="medium"> </x-alert>
 
 
 <div {{ $attributes->merge(['class' => 'bg-red-100']) }}>
