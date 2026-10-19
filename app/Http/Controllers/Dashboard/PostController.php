@@ -46,7 +46,6 @@ $post=new Post();
         //    'posted'=> 'required',
         //
         //    ]);
-
         // Post::create([
         // 'title' => $request->all()['title'],
         // 'slug' => $request->all()['slug'],
