@@ -29,4 +29,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function isAdmin(): bool
+    {
+        return $this->rol === 'admin';
+    }
+    public function Regular(): bool
+    {
+        return $this->rol === 'regular';
+    }
+
+
+
+
+
 }
